@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_Cliente")
+@Table(name = "tb_Client")
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,19 +31,15 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public Client(Long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-
 	public Client(Long id, String name,  String cpf, Double income, Instant birthDate, Integer children) {
+	
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.income = income;
 		this.birthDate = birthDate;
 		this.children = children;
-		
+	
 	}
 
 	public Long getId() {
