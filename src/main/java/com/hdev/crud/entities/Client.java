@@ -26,20 +26,20 @@ public class Client implements Serializable {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
 	private Integer children;
-	
+
 	// construtor padrão
 	public Client() {
 	}
 
-	public Client(Long id, String name,  String cpf, Double income, Instant birthDate, Integer children) {
-	
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.income = income;
 		this.birthDate = birthDate;
 		this.children = children;
-	
+
 	}
 
 	public Long getId() {
@@ -77,17 +77,19 @@ public class Client implements Serializable {
 	public Instant getBirthDate() {
 		return birthDate;
 	}
+
 	public void setBirthDate(Instant birthDate) {
-	 	this.birthDate = birthDate;
+		this.birthDate = birthDate;
 	}
-	
+
 	public Integer getChildren() {
 		return children;
 	}
+
 	public void setChildren(Integer children) {
-	 	this.children = children;
-	 }
-	
+		this.children = children;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

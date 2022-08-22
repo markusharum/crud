@@ -15,8 +15,7 @@ import com.hdev.crud.services.exceptions.ResourceNotFoundException;
 public class ResourceExceptionsHadler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException  e, HttpServletRequest request)
-    {
+    public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException e, HttpServletRequest request) {
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
         err.setStatus(HttpStatus.NOT_FOUND.value());
@@ -24,35 +23,20 @@ public class ResourceExceptionsHadler {
         err.setMsg(e.getMessage());
         err.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
-        
-    }  
-    
+
+    }
+
     @ExceptionHandler(DatabaseException.class)
-    public ResponseEntity<StandardError> database(DatabaseException  e, HttpServletRequest request)
-    {
+    public ResponseEntity<StandardError> database(DatabaseException e, HttpServletRequest request) {
 
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
-        err.setStatus(HttpStatus.BAD_REQUEST.value()); //erro 400
+        err.setStatus(HttpStatus.BAD_REQUEST.value()); // erro 400
         err.setError("Database exception");
         err.setMsg(e.getMessage());
         err.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
-        
-    }   
 
-    /*@ExceptionHandler(DatabaseException.class)
-    public ResponseEntity<StandardError> exemplo(DatabaseException  e, HttpServletRequest request)
-    {   
-        //correto
-        StandardError err = new StandardError();
-        HttpStatus statusRequest = HttpStatus.BAD_REQUEST;
-        err.setTimestamp(Instant.now());
-        err.setStatus(statusRequest.value()); //erro 400
-        err.setError("Database exception");
-        err.setMsg(e.getMessage());
-        err.setPath(request.getRequestURI());
-        return ResponseEntity.status(statusRequest).body(err);
-        
-    }*/   
+    }
+
 }

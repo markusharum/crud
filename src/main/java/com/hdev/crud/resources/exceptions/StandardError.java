@@ -3,9 +3,9 @@ package com.hdev.crud.resources.exceptions;
 import java.io.Serializable;
 import java.time.Instant;
 
-public class StandardError implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class StandardError implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Instant timestamp;
     private Integer status;
@@ -21,8 +21,8 @@ public class StandardError implements Serializable{
         return timestamp;
     }
 
-    public Integer getStatus(){
-        
+    public Integer getStatus() {
+
         return status;
     }
 
